@@ -1,0 +1,97 @@
+<html ng-app="myApp" ng-controller="AppCtl" >
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title></title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/controller.js"></script>
+    <script type="text/javascript" src="js/angular-route.min.js"></script>
+    
+</head>
+
+<body>
+       <nav class="navbar navbar-default" role="navigation">
+           <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-toggle">
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="/">Contacts Manager</a>
+           </div>
+
+           <div class="collapse navbar-collapse" id="nav-toggle">
+               <ul class="nav navbar-nav">
+                   <li class="active"><a href="/">Browse</a></li>
+                   <li><a href="/add">Add Contact</a></li>
+               </ul>
+               <form class="navbar-form navbar-right" role="search">
+                   <input type="text" class="form-control" placeholder="Search">
+               </form>
+           </div>
+       </nav>
+
+       <ul>
+           <li ng-repeat="contact in contacts">
+               {{ contact.name }}
+           </li>
+       </ul>
+
+       <div class="container">
+           <div class="row">
+               <div class="col-sm-8">
+                   <div class="row">
+                       <div class="col-sm-6">
+                           <p>Lorem ipsum color</p>
+                       </div>
+                       <div class="col-sm-6">
+                           <p>Class aptent taciti...</p>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-sm-4">
+                   here is our sidebar
+               </div>
+           </div> 
+
+       </div>
+
+       <div class="container">
+           <div class="col-sm-8">
+               <button ng-click="clickHandler()">Click Me</button>
+           </div>
+       </div>
+
+       <div ng-hide="isHidden">
+           Click the button above to  toggle.
+       </div>
+
+       <!--<div ng-init="test = 'Hello World !!' "></div>
+       {{test}}-->
+
+       <p ng-class="{'text-center': center, 'text-danger': error}" ng-style="styleDemo()">
+           My name is Madhusudan Mewada
+       </p>
+       <label><input type="checkbox" ng-model="center">text-center</label>
+       <label><input type="checkbox" ng-model="error">text-danger</label>
+       <label><input type="checkbox" ng-model="styler">Styler</label>
+       <br>
+
+       {{ 12345 | currency }}</br>
+       {{ 'Madhusudan Mewada' | lowercase }}
+{{ 725508723000 | date:'medium'}}
+
+    </br>
+<input type="text" ng-model="search">
+<ul>
+    <li ng-repeat="contact in contacts | filter:search | orderBy:'name':true">
+        {{ contact.name}} - {{ contact.phone}} - {{ contact.email}}
+    </li>
+</ul>
+
+{{ 'i am a simple' | truncate:15}}
+
+</body>
+</html>
